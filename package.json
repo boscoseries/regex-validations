@@ -1,0 +1,14 @@
+{
+  "name": "regex-validations",
+  "version": "1.0.0",
+  "description": "A project to show application of some regex validation methods",
+  "main": "regex.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Johnbosco",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.7.1"
+  }
+}
