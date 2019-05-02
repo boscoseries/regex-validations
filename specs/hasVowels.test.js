@@ -1,13 +1,14 @@
-var hasVowels = require('../hasVowels');
+var String = require('../hasVowels');
 
-describe("check for vowel letter", function() {
+describe("check for vowel letter in a string", function() {
 
-test("'y,i,o,e,g,h' contains a vowel letter and should return 'true'", function() {
-  expect(typeof hasVowels('y,i,o,e,g,h')).toBe('Boolean');
+  var string = 'We are going to school today';
+
+  test("string.hasVowels() should return a Boolean", function() {
+    expect(typeof string.hasVowels()).toBe('boolean');
+  });
+  test("string.hasVowels() should return 'true'", function() {
+    expect(string.hasVowels()).toBeTruthy();
+  });
+
 });
-test("'y,i,o,e,g,h' contains a vowel letter and should return 'true'", function() {
-  expect(hasVowels('y,i,o,e,g,h')).toBeTruthy();
-})
-
-
-})
