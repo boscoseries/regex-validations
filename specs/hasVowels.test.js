@@ -1,4 +1,4 @@
-var String = require('../hasVowels');
+var String = require('../regex');
 
 describe("check for vowel letter in a string", function() {
 

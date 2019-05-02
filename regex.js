@@ -3,6 +3,10 @@ String.prototype.hasVowels = function() {
   return regEx.test(this);
 }
 
+String.prototype.toUpper = function() {
+  
+
+}
 
 
 module.exports = String;
