@@ -41,6 +41,19 @@ String.prototype.ucFirst = function () {
   return newString;
 }
 
+String.prototype.isQuestion = function () {
+  var regex = /\b\s*\?$/g;
+  if (regex.test(this)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+//String.prototype.isQuestion =function() {
+
+//}
+
 
 
 
