@@ -1,6 +1,6 @@
 var String = require('../regex');
 
-describe("convert a string to uppercase", function() {
+describe("capitalize a string", function() {
 
   var string = 'this is a capitalized string';
   var nonString = 12345;
