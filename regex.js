@@ -52,9 +52,14 @@ String.prototype.isQuestion = function () {
 
 String.prototype.word = function () {
   var regex = /\s/;
-  return this.split(regex)
+  return this.split(regex);
 }
 
+String.prototype.wordCount = function () {
+  return this.word().length;
+}
+
+//console.log('this is a boy'.wordCount())
 
 
 
