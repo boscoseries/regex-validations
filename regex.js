@@ -5,21 +5,33 @@ String.prototype.hasVowels = function () {
 
 String.prototype.toUpper = function () {
   regEx = /[a-z]/gi;
-     var string = "";
+  var string = "";
 
-    for (index = 0; index < this.length; index++) {
-      if ( this.match(regEx) ) {
+  for (index = 0; index < this.length; index++) {
+    if (this.match(regEx)) {
       string += String.fromCharCode(this.charCodeAt(index) & 223);
-      } else {
+    } else {
       string += this;
-      }
     }
-    return string;
   }
+  return string;
+}
 
-  
+String.prototype.toLower = function () {
+  regEx = /[a-z]/gi;
 
-//console.log('uche is good'.toUpper())
+  var string = "";
+  for (index = 0; index < this.length; index++) {
+    if (this.match(regEx)) {
+      string += String.fromCharCode(this.charCodeAt(index) + 32);
+    } else {
+      string += this;
+    }
+  }
+  return string;
+}
+
+
 
 
 
