@@ -50,9 +50,10 @@ String.prototype.isQuestion = function () {
   }
 };
 
-//String.prototype.isQuestion =function() {
-
-//}
+String.prototype.word = function () {
+  var regex = /\s/;
+  return this.split(regex)
+}
 
 
 
