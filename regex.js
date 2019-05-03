@@ -31,6 +31,15 @@ String.prototype.toLower = function () {
   return string;
 }
 
+String.prototype.ucFirst = function () {
+  var regex = /\b([a-z])/g;
+  for (str of this) {
+   var newString = this.replace(regex, function ($1) {
+      return $1.toUpper();
+    })
+  }
+  return newString;
+}
 
 
 
