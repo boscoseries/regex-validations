@@ -9,7 +9,7 @@ describe("convert a string to uppercase", function() {
     expect(typeof string.toUpper()).toBe('string');
   });
   test("It should return a string with all uppercase letters ", function() {
-    expect(string.toUpper()).toContain('THIS IS A STRING');
+    expect(string.toUpper()).toEqual(expect.stringMatching(/[A-Z]/));
   });
   test("It should throw if type of input is not a string", function() {
     expect(function() { return nonString.toUpper()}).toThrow();
