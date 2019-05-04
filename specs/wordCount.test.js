@@ -1,6 +1,6 @@
 var String = require('../regex');
 
-describe("Check if a line is a question", function() {
+describe("Count length of words in a line", function() {
 
   var string = 'this is a long line of words';
   var nonString = 12345;

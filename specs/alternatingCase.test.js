@@ -1,6 +1,6 @@
 var String = require('../regex');
 
-describe("inverse case of a string", function() {
+describe("alternating case of a string", function() {
 
   var string = 'Onomatopoeia';
   var secondString = 'Juxtapose';
