@@ -33,7 +33,7 @@ String.prototype.toLower = function () {
 
 String.prototype.ucFirst = function () {
   var regex = /\b([a-z])/g;
-  for (str of this) {
+  for (string of this) {
    var newString = this.replace(regex, function ($1) {
       return $1.toUpper();
     })
@@ -59,7 +59,18 @@ String.prototype.wordCount = function () {
   return this.word().length;
 }
 
-//console.log('this is a boy'.wordCount())
+String.prototype.inverseCase = function() {
+  var result = this.split(/\s/);
+
+  for (let index=0; index<this.length; index++) {
+    if (this[index].match(/[a-z]/g)) {
+      result[index] = this[index].toUpper()
+    } else {
+      result[index] = this[index].toLower()
+    }
+  }
+  return result.join('');
+}
 
 
 
