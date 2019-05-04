@@ -4,7 +4,7 @@ String.prototype.hasVowels = function () {
 }
 
 String.prototype.toUpper = function () {
-  regEx = /[a-z]/gi;
+  regEx = /[a-z]/g;
   var string = "";
 
   for (index = 0; index < this.length; index++) {
@@ -18,7 +18,7 @@ String.prototype.toUpper = function () {
 }
 
 String.prototype.toLower = function () {
-  regEx = /[a-z]/gi;
+  regEx = /[A-Z]/g;
 
   var string = "";
   for (index = 0; index < this.length; index++) {
@@ -71,6 +71,23 @@ String.prototype.inverseCase = function() {
   }
   return result.join('');
 }
+
+String.prototype.alternatingCase = function() {
+  var result = this.split('');
+
+  if (result[0].match(/[a-z]/)) throw new Error('input should begin with an uppercase letter');
+
+  for (let index=0; index<this.length; index++) {
+      if (index%2==0) {
+        result[index] = this[index].toLower();
+      } else {
+      result[index] = this[index].toUpper();
+    }
+  }
+  return result.join('');
+}
+
+//console.log('Onomatopoeia'.alternatingCase());
 
 
 
