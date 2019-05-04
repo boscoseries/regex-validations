@@ -83,11 +83,25 @@ String.prototype.alternatingCase = function() {
   return result.join('');
 }
 
+String.prototype.numberWords = function () {
+  var numbersObject = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 0: 'zero'};
+  var result = [];
+  var regex = /\d/
+  
+  for (let index=0; index<this.length; index++) {
+    var wordNumber = this[index].replace(regex, function($1) {
+      return numbersObject[$1]
+    })
+    result.push(wordNumber);
+  }
+  return result.join(' ');
+  }
+  
+
 String.prototype.isDigit = function() {
   regex = /^\d$/;
   return regex.test(this);
 }
-
 
 
 module.exports = String;
