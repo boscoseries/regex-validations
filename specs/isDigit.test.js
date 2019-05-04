@@ -7,7 +7,7 @@ describe("Check if input is a digit", function() {
   var nonStringInput = 12345;
 
   test("It should return a typeof of 'boolean'", function() {
-    expect(typeof question.isDigit()).toBe('boolean');
+    expect(typeof singleDigit.isDigit()).toBe('boolean');
   });
   test("It should return true if input is a single digit", function() {
     expect(singleDigit.isDigit()).toBeTruthy();
