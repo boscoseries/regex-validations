@@ -43,11 +43,7 @@ String.prototype.ucFirst = function () {
 
 String.prototype.isQuestion = function () {
   var regex = /\b\s*\?$/g;
-  if (regex.test(this)) {
-    return true;
-  } else {
-    return false;
-  }
+  return regex.test(this)
 };
 
 String.prototype.word = function () {
@@ -87,7 +83,10 @@ String.prototype.alternatingCase = function() {
   return result.join('');
 }
 
-//console.log('Onomatopoeia'.alternatingCase());
+String.prototype.isDigit = function() {
+  regex = /^\d$/;
+  return regex.test(this);
+}
 
 
 
