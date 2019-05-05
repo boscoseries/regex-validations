@@ -57,7 +57,7 @@ String.prototype.wordCount = function () {
 
 String.prototype.toCurrency = function () {
   var arrayOfCurrency = [];
-  var regex = /^(\d+).(\d+)$/;
+  var regex = /^(\d+)\.?(\d+)?$/;
   var number = this.match(regex);
   var wholeNumbers = number[1], decimalNumbers = number[2];
 
@@ -69,8 +69,12 @@ String.prototype.toCurrency = function () {
       arrayOfCurrency.push(wholeNumber + ',');
     }
   }
-  var currencyToString = arrayOfCurrency.reverse().join('').concat('.' + decimalNumbers);
-  return currencyToString;
+  let currencyToString = arrayOfCurrency.reverse().join('')
+  if (decimalNumbers) {
+    return currencyToString.concat('.' + decimalNumbers);
+  } else {
+    return currencyToString
+  }
 }
 
 String.prototype.inverseCase = function () {
@@ -114,6 +118,7 @@ String.prototype.numberWords = function () {
   }
   return result.join(' ');
 }
+
 
 String.prototype.isDigit = function () {
   regex = /^\d$/;
