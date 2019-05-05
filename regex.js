@@ -8,11 +8,7 @@ String.prototype.toUpper = function () {
   var string = "";
 
   for (index = 0; index < this.length; index++) {
-    if (this.match(regEx)) {
       string += String.fromCharCode(this.charCodeAt(index) & 223);
-    } else {
-      string += this;
-    }
   }
   return string;
 }
@@ -27,7 +23,7 @@ String.prototype.toLower = function () {
     } else {
       string += this;
     }
-  }
+   }
   return string;
 }
 
@@ -77,6 +73,17 @@ String.prototype.toCurrency = function () {
   }
 }
 
+String.prototype.fromCurrency = function() {
+  var number;
+  var regex = /^(\d{0,3},+?)(\d{3},?)+(\.\d+)?$/;
+  var comma = /,/g
+  if (this.match(regex)) {
+    number = this.replace(comma, '');
+    return Number(number);
+  }
+  throw new Error()
+}
+
 String.prototype.inverseCase = function () {
   var result = this.split(/\s/);
 
@@ -119,10 +126,10 @@ String.prototype.numberWords = function () {
   return result.join(' ');
 }
 
-
 String.prototype.isDigit = function () {
   regex = /^\d$/;
   return regex.test(this);
 }
+
 
 module.exports = String;
