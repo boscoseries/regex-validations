@@ -5,30 +5,22 @@ String.prototype.hasVowels = function () {
 
 String.prototype.toUpper = function () {
   regEx = /[a-z]/g;
-  var string = "";
-
-  for (index = 0; index < this.length; index++) {
-      string += String.fromCharCode(this.charCodeAt(index) & 223);
-  }
-  return string;
+  var result = this.replace(regEx, function ($1) {
+    return String.fromCharCode($1.charCodeAt(0) - 32 );
+  })
+  return result;
 }
 
 String.prototype.toLower = function () {
   regEx = /[A-Z]/g;
-
-  var string = "";
-  for (index = 0; index < this.length; index++) {
-    if (this.match(regEx)) {
-      string += String.fromCharCode(this.charCodeAt(index) + 32);
-    } else {
-      string += this;
-    }
-   }
-  return string;
+  var result = this.replace(regEx, function ($1) {
+    return String.fromCharCode($1.charCodeAt(0) + 32);
+  })
+  return result;
 }
 
 String.prototype.ucFirst = function () {
-  var regex = /\b([a-z])/g;
+  var regex = /\b[a-z]/g;
   for (string of this) {
     var newString = this.replace(regex, function ($1) {
       return $1.toUpper();
@@ -73,7 +65,7 @@ String.prototype.toCurrency = function () {
   }
 }
 
-String.prototype.fromCurrency = function() {
+String.prototype.fromCurrency = function () {
   var number;
   var regex = /^(\d{0,3},+?)(\d{3},?)+(\.\d+)?$/;
   var comma = /,/g
@@ -85,16 +77,15 @@ String.prototype.fromCurrency = function() {
 }
 
 String.prototype.inverseCase = function () {
-  var result = this.split(/\s/);
-
-  for (let index = 0; index < this.length; index++) {
-    if (this[index].match(/[a-z]/g)) {
-      result[index] = this[index].toUpper()
+  regex = /[a-z]/gi;
+  var result = this.replace(regex, function ($1) {
+    if ($1.match(/[A-Z]/)) {
+      return $1.toLower();
     } else {
-      result[index] = this[index].toLower()
+      return $1.toUpper()
     }
-  }
-  return result.join('');
+  })
+  return result
 }
 
 String.prototype.alternatingCase = function () {
@@ -114,16 +105,12 @@ String.prototype.alternatingCase = function () {
 
 String.prototype.numberWords = function () {
   var numbersObject = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 0: 'zero' };
-  var result = [];
-  var regex = /\d/
 
-  for (let index = 0; index < this.length; index++) {
-    var wordNumber = this[index].replace(regex, function ($1) {
-      return numbersObject[$1]
-    })
-    result.push(wordNumber);
-  }
-  return result.join(' ');
+  var regex = /\d/g;
+  var wordNumber = this.replace(regex, function ($1) {
+    return numbersObject[$1] + ' ';
+  });
+  return wordNumber;
 }
 
 String.prototype.isDigit = function () {
