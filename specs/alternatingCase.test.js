@@ -2,7 +2,7 @@ var String = require('../regex');
 
 describe("alternating case of a string", function() {
 
-  var string = 'Onomatopoeia';
+  var string = 'onomatopoeia';
   var secondString = 'Juxtapose';
   var invalidString = 'lowercase';
   var nonString = 2345;
@@ -18,9 +18,6 @@ describe("alternating case of a string", function() {
   });
   test("It should throw if type of input is not a string", function() {
     expect(function() { return nonString.alternatingCase()}).toThrow('not a function');
-  });
-  test("It should throw if first letter doesn't begin in uppercase", function() {
-    expect(function() { return invalidString.alternatingCase()}).toThrowError('input should begin with an uppercase letter');
   });
 
 });
