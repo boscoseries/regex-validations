@@ -111,7 +111,7 @@ inverseCase method converts all uppercase letters
 in the input string to lowercase and vice-versa
 */
 String.prototype.inverseCase = function () {
-  regexe = /[a-z]/gi;
+  regex = /[a-z]/gi;
   var result = this.replace(regex, function ($1) {
     if ($1.match(/[A-Z]/)) {
       return $1.toLower();
