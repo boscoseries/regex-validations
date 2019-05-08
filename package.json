@@ -4,7 +4,7 @@
   "description": "A project to show application of some regex validation methods",
   "main": "regex.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "Johnbosco",
   "license": "ISC",
